@@ -120,7 +120,11 @@ blandr.plot.ggplot <- function ( statistics.results ,
     geom_hline( yintercept = statistics.results$lowerLOA_upperCI , linetype = 3 ) + # Lower limit of agreement - upper confidence interval
     geom_hline( yintercept = statistics.results$lowerLOA_lowerCI , linetype = 3 ) # Lower limit of agreement - lower confidence interval
 
-    # Shading areas for 95% confidence intervals (OPTIONAL)
+    
+
+  }
+  
+  # Shading areas for 95% confidence intervals (OPTIONAL)
     # This needs to be nested into the ciDisplay check
     if( ciShading == TRUE ) {
       ba.plot <- ba.plot +
@@ -128,8 +132,6 @@ blandr.plot.ggplot <- function ( statistics.results ,
         annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$upperLOA_lowerCI , ymax = statistics.results$upperLOA_upperCI , fill="grey" , alpha=0.3 ) + # Upper limits of agreement confidence interval shading
         annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$lowerLOA_lowerCI , ymax = statistics.results$lowerLOA_upperCI , fill="grey" , alpha=0.3 ) # Lower limits of agreement confidence interval shading
     }
-
-  }
   ### Function has finished drawing of confidence intervals at this line
 
   # If a normalLow value has been sent, plots this line
