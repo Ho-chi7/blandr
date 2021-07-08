@@ -107,9 +107,9 @@ ggplot.blandr = function( x ,
     # This needs to be nested into the ciDisplay check
     if( ciShading == TRUE ) {
       ba.plot <- ba.plot +
-        annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$biasLowerCI , ymax = statistics.results$biasUpperCI , fill="blue" , alpha=0.3 ) + # Bias confidence interval shading
-        annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$upperLOA_lowerCI , ymax = statistics.results$upperLOA_upperCI , fill="green" , alpha=0.3 ) + # Upper limits of agreement confidence interval shading
-        annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$lowerLOA_lowerCI , ymax = statistics.results$lowerLOA_upperCI , fill="red" , alpha=0.3 ) # Lower limits of agreement confidence interval shading
+        annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$biasLowerCI , ymax = statistics.results$biasUpperCI , fill="grey" , alpha=0.3 ) + # Bias confidence interval shading
+        annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$upperLOA_lowerCI , ymax = statistics.results$upperLOA_upperCI , fill="grey" , alpha=0.3 ) + # Upper limits of agreement confidence interval shading
+        annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$lowerLOA_lowerCI , ymax = statistics.results$lowerLOA_upperCI , fill="grey" , alpha=0.3 ) # Lower limits of agreement confidence interval shading
     }
 
   }
