@@ -103,7 +103,7 @@ blandr.plot.ggplot <- function ( statistics.results ,
     geom_hline( yintercept = statistics.results$bias + ( statistics.results$biasStdDev * statistics.results$sig.level.convert.to.z ) , linetype = ba.plot.props[["upperLine"]][["type"]], colour = ba.plot.props[["upperLine"]][["colour"]] ) + # Upper limit of agreement
     geom_hline( yintercept = statistics.results$bias - ( statistics.results$biasStdDev * statistics.results$sig.level.convert.to.z ) , linetype = ba.plot.props[["lowerLine"]][["type"]], colour = ba.plot.props[["lowerLine"]][["colour"]] ) + # Lower limit of agreement
     # geom_point(colour = ba.plot.props[["point"]][["colour"]], fill = ba.plot.props[["point"]][["fill"]], size = ba.plot.props[["point"]][["size"]], alpha = ba.plot.props[["point"]][["alpha"]]) +
-    geom_point(aes(colour = rownames(plot.data)), fill = ba.plot.props[["point"]][["fill"]], size = ba.plot.props[["point"]][["size"]], alpha = ba.plot.props[["point"]][["alpha"]]) +
+    geom_point(aes(colour = rownames(plot.data)), fill = ba.plot.props[["point"]][["fill"]], size = ba.plot.props[["point"]][["size"]], alpha = ba.plot.props[["point"]][["alpha"]], show.legend = FALSE) +
     ggtitle( plotTitle ) +
     xlab( "Means" )
 
