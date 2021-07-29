@@ -50,9 +50,9 @@
 #' S. Thwaites parameterised the plotting colours, size, fill, etc, for the plotting of the BA plots.
 
 blandr.plot.ggplot <- function ( statistics.results ,
+                            ba.plot.props,
                             method1name = "Method 1" ,
                             method2name = "Method 2" ,
-                            ba.plot.props,
                             plotTitle = "Bland-Altman plot for comparison of 2 methods" ,
                             ciDisplay = TRUE ,
                             ciShading = TRUE ,
