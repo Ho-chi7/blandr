@@ -46,10 +46,13 @@
 #' ciDisplay = FALSE , ciShading = FALSE )
 #'
 #' @export
+#'
+#' S. Thwaites parameterised the plotting colours, size, fill, etc, for the plotting of the BA plots.
 
 blandr.plot.ggplot <- function ( statistics.results ,
                             method1name = "Method 1" ,
                             method2name = "Method 2" ,
+                            ba.plot.props,
                             plotTitle = "Bland-Altman plot for comparison of 2 methods" ,
                             ciDisplay = TRUE ,
                             ciShading = TRUE ,
@@ -60,7 +63,8 @@ blandr.plot.ggplot <- function ( statistics.results ,
                             y.plot.mode = "difference" ,
                             plotProportionalBias = FALSE ,
                             plotProportionalBias.se = TRUE ,
-                            assume.differences.are.normal = TRUE
+                            assume.differences.are.normal = TRUE,
+                            bapoint.colour = "red", point.fill = "white", point.size = 3, point.alpha = 0.4    
                             ) {
 
   # Does a check if ggplot2 is available
@@ -94,7 +98,7 @@ blandr.plot.ggplot <- function ( statistics.results ,
 
   # Plot using ggplot
   ba.plot <- ggplot( plot.data , aes( x = plot.data$x.axis , y = plot.data$y.axis ) ) +
-    geom_point() +
+    geom_point(colour = ba.plot.props[["point"]][["colour"]], fill = ba.plot.props[["point"]][["fill"]], size = ba.plot.props[["point"]][["size"]], alpha = ba.plot.props[["point"]][["alpha""]]) +
     theme(plot.title = element_text(hjust = 0.5)) +
     geom_hline( yintercept = 0 , linetype = 1 ) + # "0" line
     geom_hline( yintercept = statistics.results$bias , linetype = 2 ) + # Bias
