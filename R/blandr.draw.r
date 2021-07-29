@@ -86,9 +86,9 @@ blandr.draw <- function( method1 ,
 
         # Pass data to the blandr.plot.ggplot function to use ggplot2 graphics system
         ba.plot <- blandr.plot.ggplot( statistics.results = statistics.results ,
+                                  ba.plot.props = ba.plot.props,
                                   method1name = method1name ,
                                   method2name = method2name ,
-                                  ba.plot.props = ba.plot.props,
                                   plotTitle = plotTitle ,
                                   ciDisplay = ciDisplay ,
                                   ciShading = ciShading ,
