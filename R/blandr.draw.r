@@ -39,9 +39,12 @@
 #' ciDisplay = FALSE , ciShading = FALSE )
 #'
 #' @export
+#'
+#' S. Thwaites added paramater ba.plot.props which will be a list of lists defining some plot attribu
 
 blandr.draw <- function( method1 ,
                          method2 ,
+                         ba.plot.props,
                          method1name = "Method 1" ,
                          method2name = "Method 2" ,
                          plotTitle = "Bland-Altman plot for comparison of 2 methods",
@@ -85,6 +88,7 @@ blandr.draw <- function( method1 ,
         ba.plot <- blandr.plot.ggplot( statistics.results = statistics.results ,
                                   method1name = method1name ,
                                   method2name = method2name ,
+                                  ba.plot.props = ba.plot.props,
                                   plotTitle = plotTitle ,
                                   ciDisplay = ciDisplay ,
                                   ciShading = ciShading ,
