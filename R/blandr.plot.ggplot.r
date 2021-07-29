@@ -100,9 +100,9 @@ blandr.plot.ggplot <- function ( statistics.results ,
     geom_point(colour = ba.plot.props[["point"]][["colour"]], fill = ba.plot.props[["point"]][["fill"]], size = ba.plot.props[["point"]][["size"]], alpha = ba.plot.props[["point"]][["alpha"]]) +
     theme(plot.title = element_text(hjust = 0.5)) +
     geom_hline( yintercept = 0 , linetype = ba.plot.props[["zeroLine"]][["type"]], colour = ba.plot.props[["zeroLine"]][["colour"]] ) + # "0" line
-    geom_hline( yintercept = statistics.results$bias , linetype = 2 ) + # Bias
-    geom_hline( yintercept = statistics.results$bias + ( statistics.results$biasStdDev * statistics.results$sig.level.convert.to.z ) , linetype = 2 ) + # Upper limit of agreement
-    geom_hline( yintercept = statistics.results$bias - ( statistics.results$biasStdDev * statistics.results$sig.level.convert.to.z ) , linetype = 2 ) + # Lower limit of agreement
+    geom_hline( yintercept = statistics.results$bias , linetype = ba.plot.props[["biasLine"]][["type"]], colour = ba.plot.props[["biasLine"]][["colour"]] ) + # Bias
+    geom_hline( yintercept = statistics.results$bias + ( statistics.results$biasStdDev * statistics.results$sig.level.convert.to.z ) , linetype = ba.plot.props[["upperLine"]][["type"]], colour = ba.plot.props[["upperLine"]][["colour"]] ) + # Upper limit of agreement
+    geom_hline( yintercept = statistics.results$bias - ( statistics.results$biasStdDev * statistics.results$sig.level.convert.to.z ) , linetype = ba.plot.props[["lowerLine"]][["type"]], colour = ba.plot.props[["lowerLine"]][["colour"]] ) + # Lower limit of agreement
     ggtitle( plotTitle ) +
     xlab( "Means" )
 
@@ -131,9 +131,9 @@ blandr.plot.ggplot <- function ( statistics.results ,
     # This needs to be nested into the ciDisplay check
     if( ciShading == TRUE ) {
       ba.plot <- ba.plot +
-        annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$biasLowerCI , ymax = statistics.results$biasUpperCI , fill="grey" , alpha=0.3 ) + # Bias confidence interval shading
-        annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$upperLOA_lowerCI , ymax = statistics.results$upperLOA_upperCI , fill="grey" , alpha=0.3 ) + # Upper limits of agreement confidence interval shading
-        annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$lowerLOA_lowerCI , ymax = statistics.results$lowerLOA_upperCI , fill="grey" , alpha=0.3 ) # Lower limits of agreement confidence interval shading
+        annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$biasLowerCI , ymax = statistics.results$biasUpperCI , fill = ba.plot.props[["biasLine"]][["CIfill.colour"]] , alpha = ba.plot.props[["biasLine"]][["CIfill.alpha"]] ) + # Bias confidence interval shading
+        annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$upperLOA_lowerCI , ymax = statistics.results$upperLOA_upperCI , fill = ba.plot.props[["upperLine"]][["CIfill.colour"]] , alpha = ba.plot.props[["upperLine"]][["CIfill.alpha"]] ) + # Upper limits of agreement confidence interval shading
+        annotate( "rect", xmin = -Inf , xmax = Inf , ymin = statistics.results$lowerLOA_lowerCI , ymax = statistics.results$lowerLOA_upperCI , fill = ba.plot.props[["lowerLine"]][["CIfill.colour"]] , alpha = ba.plot.props[["lowerLine"]][["CIfill.alpha"]] ) # Lower limits of agreement confidence interval shading
     }
   ### Function has finished drawing of confidence intervals at this line
 
