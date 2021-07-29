@@ -63,8 +63,7 @@ blandr.plot.ggplot <- function ( statistics.results ,
                             y.plot.mode = "difference" ,
                             plotProportionalBias = FALSE ,
                             plotProportionalBias.se = TRUE ,
-                            assume.differences.are.normal = TRUE,
-                            bapoint.colour = "red", point.fill = "white", point.size = 3, point.alpha = 0.4    
+                            assume.differences.are.normal = TRUE  
                             ) {
 
   # Does a check if ggplot2 is available
